@@ -35,7 +35,7 @@ class Main extends PluginBase implements Listener{
      $this->saveResource("config.yml");
      $this->wellItems = $this->getConfig()->get("items");
      $this->souls = new Config($this->getDataFolder().'souls.yml', Config::YAML);
-     $this->getLogger()->info("SoulWell Plugin Made By ZulfahmiFjr");
+     $this->getLogger()->info("SoulWell Plugin Made By ZulfahmiFjr + Tuvqlu!");
     }
 
     public function onPlayerJoin(PlayerJoinEvent $e){
@@ -49,7 +49,7 @@ class Main extends PluginBase implements Listener{
       $x = $data->get("well.x");
       $y = $data->get("well.y");
       $z = $data->get("well.z");
-      $text = "§bSoul Well\n§l§eRIGHT CLICK";
+      $text = "§dSoul Well \n §rClick Me!";
       $p->getWorld()->addParticle(new Vector3($x + 0.5, $y + 2, $z + 0.5), new FloatingTextParticle('', $text), array($p));
      }
     }
@@ -69,7 +69,7 @@ class Main extends PluginBase implements Listener{
       if($b->getPosition()->x === $x && $b->getPosition()->y === $y + 2 && $b->getPosition()->z === $z || $b->getPosition()->x === $x && $b->getPosition()->y === $y + 1 && $b->getPosition()->z === $z){
        $pk = new ModalFormRequestPacket();
        $pk->formId = 7382999;
-       $message = "§f       _________________________\n           §6§lSoul Well by Hypixel\n§r§f       -------------------------\n";
+       $message = "          §5§lSoul Well     \n \n";
        if(!empty($this->getConfig()->get("message"))){
         if(is_array($this->getConfig()->get("message"))){
          foreach($this->getConfig()->get("message") as $text){
