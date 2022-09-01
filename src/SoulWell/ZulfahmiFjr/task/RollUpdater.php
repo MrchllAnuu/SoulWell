@@ -48,13 +48,13 @@ class RollUpdater extends Task{
        if($item !== null){
         if($p->isOnline()){
          $this->addItemToPlayer($p, $item);
-         $p->sendMessage("§f§lSoulWell§r§f: §7§oYou get §r§f".$item->getName()." §7§owith amount §r§f".$item->getCount()." §7§ofrom SoulWell§r§f.");
+         $p->sendMessage("§l§3»§r §7You have recieved§b".$item->getName()." §ex ".$item->getCount()."§7!");
         }
        }
       }else if(($item = $this->prediction) instanceof Item){
        if($p->isOnline()){
         $this->addItemToPlayer($p, $item);
-        $p->sendMessage("§f§lSoulWell§r§f: §7§oYou get §r§f".$item->getName()." §7§owith amount §r§f".$item->getCount()." §7§ofrom SoulWell§r§f.");
+        $p->sendMessage("§l§3»§r §7§oYou have recieved §b".$item->getName()."§e x ".$item->getCount()." §7!");
        }
       }
       $this->getHandler()->cancel();
@@ -69,7 +69,7 @@ class RollUpdater extends Task{
      if(!isset($reward["id"]) || !isset($reward["meta"]) || !isset($reward["amount"])){
       $this->pl->souls->set(strtolower($p->getName()), $this->pl->souls->get(strtolower($p->getName())) + 10);
       $this->pl->souls->save();
-      $p->sendMessage("§f§lSoulWell§r§f: §7§oAn error occurred in the SoulWell system your Soul Keys will be returned soon§r§f, §7§oplease report admin§r§f!");
+      $p->sendMessage("§l§3»§r §cAn error occurred in the SoulWell system. Your Soul Keys will be returned shortly!");
       return null;
      }
      $item = ItemFactory::getInstance()->get($reward["id"], $reward["meta"], $reward["amount"]);
@@ -154,7 +154,7 @@ class RollUpdater extends Task{
       if($delay === -15){
        $item = $wellInventory->getItem(31);
        $this->addItemToPlayer($p, $item);
-       $p->sendMessage("§f§lSoulWell§r§f: §7§oYou get §r§f".$item->getName()." §7§owith amount §r§f".$item->getCount()." §7§ofrom SoulWell§r§f.");
+       $p->sendMessage("§l§3»§r §7You have recieved §b".$item->getName()." §ex ".$item->getCount()."§7!");
        $this->getHandler()->cancel();
        $wellInventory->close($p);
       }
