@@ -5,7 +5,4 @@ branches:
 projects:
   SoulWell:
     path: ""
-    libs:
-      - src: skymin/InventoryLib
-        version: ^3.1.1
 ...
