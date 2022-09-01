@@ -69,7 +69,7 @@ class Main extends PluginBase implements Listener{
       if($b->getPosition()->x === $x && $b->getPosition()->y === $y + 2 && $b->getPosition()->z === $z || $b->getPosition()->x === $x && $b->getPosition()->y === $y + 1 && $b->getPosition()->z === $z){
        $pk = new ModalFormRequestPacket();
        $pk->formId = 7382999;
-       $message = "          §5§lSoul Well     \n \n";
+       $message = "              \n \n";
        if(!empty($this->getConfig()->get("message"))){
         if(is_array($this->getConfig()->get("message"))){
          foreach($this->getConfig()->get("message") as $text){
@@ -106,10 +106,10 @@ class Main extends PluginBase implements Listener{
        $text = "§5Soul Well\n§rClick me!";
        $b->getPosition()->getWorld()->addParticle(new Vector3($x + 0.5, $y + 2, $z + 0.5), new FloatingTextParticle('', $text));
        $b->getPosition()->getWorld()->setBlockAt($x, $y + 1, $z, VanillaBlocks::END_PORTAL_FRAME());
-       $p->sendMessage("bro the soul well is added okay calm tf down");
+       $p->sendMessage("§l§9»§r§c bro the soul well is added okay calm tf down");
        unset($this->set[$p->getName()]);
       }else{
-       $p->sendMessage("bro you already have a soul well dumbass. get your shit sorted!");
+       $p->sendMessage("§l§9»§r§c bro you already have a soul well dum-bass. get your sh-it sorted!");
        unset($this->set[$p->getName()]);
       }
       $e->cancel();
@@ -126,9 +126,9 @@ class Main extends PluginBase implements Listener{
         $data->remove("well.y");
         $data->remove("well.z");
         $data->save();
-        $p->sendMessage("why tf you removing this soul well? you dont like my code? fuck you");
+        $p->sendMessage("§l§9»§r§c Why tf you removing this soul well? you dont like my code? f you");
        }else{
-        $p->sendMessage("§f§lSoulWell§r§f: §7§oYou have no permission to break SoulWell§r§f!");
+        $p->sendMessage("§l§9»§r§c You do not have permission to break the SoulWell!");
         $e->cancel();
        }
       }
@@ -145,7 +145,7 @@ class Main extends PluginBase implements Listener{
        if(isset($data)){
         if($data === 0){
          if($this->souls->get(strtolower($p->getName())) < 10){
-          $p->sendMessage("§f§lSoulWell§r§f: §7§oYour Soul Keys amount is still lacking to open SoulWell§r§f!");
+          $p->sendMessage("§l§9»§r§c You do not have enough Soul Keys to open the Soul Well!");
           return;
          }
          $this->souls->set(strtolower($p->getName()), $this->souls->get(strtolower($p->getName())) - 10);
