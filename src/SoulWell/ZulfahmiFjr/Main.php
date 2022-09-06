@@ -81,7 +81,7 @@ class Main extends PluginBase implements Listener{
          $message .= "{$text}§r\n\n";
         }
        }
-       $encode = ["type" => "form", "title" => "§e§lSoul Well Confirm", "content" => "{$message}", "buttons" => [["text" => "§lOpen SoulWell"], ["text" => "§lCancel Opening"]]];
+       $encode = ["type" => "form", "title" => "§e§lConfirm Soul Well", "content" => "{$message}", "buttons" => [["text" => "§aOpen SoulWell"], ["text" => "§cCancel Opening"]]];
        $data = json_encode($encode);
        $pk->formData = $data;
        $p->getNetworkSession()->sendDataPacket($pk);
@@ -195,7 +195,7 @@ class Main extends PluginBase implements Listener{
        }
        $t = $this->getServer()->getPlayerExact($args[0]);
        if($t instanceof Player){
-        $t->sendMessage("§l§9»§r§a You have sent Soul Keys§e x ".$args[1]."§a to §e");
+        $t->sendMessage("§l§9»§r§a Congratulations! You recieved §e".$args[1]." §asouls!");
         $name = strtolower($t->getName());
        }else{
         $name = strtolower($args[0]);
