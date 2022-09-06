@@ -54,7 +54,7 @@ class RollUpdater extends Task{
       }else if(($item = $this->prediction) instanceof Item){
        if($p->isOnline()){
         $this->addItemToPlayer($p, $item);
-        $p->sendMessage("§l§3»§r §7§oYou have recieved §b".$item->getName()."§e x ".$item->getCount()." §7!");
+        $p->sendMessage("§l§3»§r §7You have recieved §b".$item->getName()."§e x ".$item->getCount()." §7!");
        }
       }
       $this->getHandler()->cancel();
