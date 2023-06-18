@@ -6,7 +6,9 @@ use pocketmine\scheduler\Task;
 use pocketmine\player\Player;
 use pocketmine\world\Position;
 use pocketmine\item\Item;
-use pocketmine\item\ItemFactory;
+use pocketmine\item\VamillaItems;
+use pocketmine\block\VanillaBlocks;
+use pocketmine\item\LegacyStringToItemParser;
 use pocketmine\item\ItemIds;
 use pocketmine\item\enchantment\StringToEnchantmentParser;
 use pocketmine\item\enchantment\EnchantmentInstance;
@@ -72,7 +74,7 @@ class RollUpdater extends Task{
       $p->sendMessage("§l§3»§r §cAn error occurred in the SoulWell system. Your Soul Keys will be returned shortly!");
       return null;
      }
-     $item = ItemFactory::getInstance()->get($reward["id"], $reward["meta"], $reward["amount"]);
+     $item = LegacyStringToItemParser::getInstance()->parse($reward["id"] . ":" . $reward["meta"])->setCount($reward["amount"]);
      if(isset($reward["name"])){
       $item->setCustomName($reward["name"]);
      }
@@ -108,12 +110,12 @@ class RollUpdater extends Task{
         $i = 0;
         while($i < 54){
          if($i !== 4 && $i !== 13 && $i !== 22 && $i !== 31 && $i !== 40 && $i !== 49 && $i !== 30 && $i !== 32){
-          $wellInventory->setItem($i, ItemFactory::getInstance()->get(ItemIds::STAINED_GLASS_PANE, mt_rand(0, 15)));
+          $wellInventory->setItem($i, VanillaBlocks::STAINED_GLASS_PANE, mt_rand(0, 15)));
          }
          $i++;
         }
-        $wellInventory->setItem(30, ItemFactory::getInstance()->get(ItemIds::END_ROD, 0));
-        $wellInventory->setItem(32, ItemFactory::getInstance()->get(ItemIds::END_ROD, 0));
+        $wellInventory->setItem(30, VanillaItems::END_ROD));
+        $wellInventory->setItem(32, VanillaItems::END_ROD, 0));
         if($this->note === 11 || $this->note === 12){
          $p->getWorld()->addSound($p->getPosition(), new NoteBlockSound(5));
          if($this->note === 11){
@@ -145,11 +147,11 @@ class RollUpdater extends Task{
        $this->low--;
       }
       if($delay === -1){
-       $wellInventory->setItem(4, ItemFactory::getInstance()->get(ItemIds::AIR, 0));
-       $wellInventory->setItem(13, ItemFactory::getInstance()->get(ItemIds::AIR, 0));
-       $wellInventory->setItem(22, ItemFactory::getInstance()->get(ItemIds::AIR, 0));
-       $wellInventory->setItem(40, ItemFactory::getInstance()->get(ItemIds::AIR, 0));
-       $wellInventory->setItem(49, ItemFactory::getInstance()->get(ItemIds::AIR, 0));
+       $wellInventory->setItem(4, VanillaBlocks::AIR, 0));
+       $wellInventory->setItem(13, VanillaBlocks::AIR, 0));
+       $wellInventory->setItem(22, VanillaBlocks::AIR, 0));
+       $wellInventory->setItem(40, VanillaBlocks::AIR, 0));
+       $wellInventory->setItem(49, VanillaBlocks::AIR, 0));
       }
       if($delay === -15){
        $item = $wellInventory->getItem(31);
