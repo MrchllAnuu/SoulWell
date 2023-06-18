@@ -9,7 +9,7 @@ use pocketmine\item\Item;
 use pocketmine\item\VamillaItems;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\item\LegacyStringToItemParser;
-use pocketmine\item\ItemIds;
+use pocketmine\item\StringToItemParser;
 use pocketmine\item\enchantment\StringToEnchantmentParser;
 use pocketmine\item\enchantment\EnchantmentInstance;
 
