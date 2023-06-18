@@ -74,7 +74,7 @@ class RollUpdater extends Task{
       $p->sendMessage("§l§3»§r §cAn error occurred in the SoulWell system. Your Soul Keys will be returned shortly!");
       return null;
      }
-     $item = LegacyStringToItemParser::getInstance()->parse($reward["id"] . ":" . $reward["meta"])->setCount($reward["amount"]);
+     $item = StringToItemParser::getInstance()->parse((int)$reward["id"] . ":" . (int)$reward["meta"])->setCount($reward["amount"]);
      if(isset($reward["name"])){
       $item->setCustomName($reward["name"]);
      }
