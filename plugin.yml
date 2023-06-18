@@ -1,8 +1,10 @@
 name: SoulWell
 main: SoulWell\ZulfahmiFjr\Main
-author: ZulfahmiFjr
-version: 1.2
-api: 4.0.0
+author: 
+- ZulfahmiFjr
+- Convert to pm5 by Mrchlldev
+version: 1.5+dev
+api: 5.0.0
 
 commands:
  soulwell:
